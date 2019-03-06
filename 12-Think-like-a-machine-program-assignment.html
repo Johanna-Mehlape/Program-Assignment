@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+        <body>
+
+    <title>Test UserScore Programme</title>
+    
+    <p>Please input a score between 0.0 and 1.0</p>
+
+
+    <input id= "score" type="text">
+    <button type="button" 
+    onclick="GradeScore()">Input Score</button>
+    <p id="input"></p>
+
+    <script>
+    function GradeScore() {
+    var message, x;
+    message = document.getElementById("input");
+    message.innerHTML = "";
+    x = document.getElementById("score").value;
+   try {
+       if (x == "") throw "is empty";
+
+       if (isNaN(x)) throw "must be a number";
+
+       x = Number(x);
+
+    if (x > 1.0) throw "is an ERROR! It's out of range!"
+    if (0.9 <= x >= 1.0) throw "A";
+
+    if (x >= 0.8)throw " = B";
+    
+    if (x >= 0.7) throw " = C";
+    
+    if(x >= 0.6) throw " = D";
+    
+    if (x < 0.6) throw " = F";
+     }
+    catch(err) {
+        message.innerHTML = "Score grade " + err;
+        }
+    }
+    </script>
+
+  </body>
+</html>
